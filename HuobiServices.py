@@ -427,7 +427,7 @@ def print_xrpusdt_in_file():
         tick = data['tick']
         bid = tick['bid']
         ask = tick['ask']
-        body = u'B ' + ('%.4f' % bid[0]) + ' : ' + ('%05d' % bid[1]) + 'S ' + ('%.4f' % ask[0]) + ' : ' + ('%05d' % ask[1])
+        body = u'B ' + ('%.4f' % bid[0]) + ' : ' + ('%05d' % bid[1]) + 'S ' + ('%.4f' % ask[0]) + ' : ' + str(ask[1])
         body = body.encode('UTF-8')
         fh = open('bid.txt','wb')
         fh.write( body )

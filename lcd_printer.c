@@ -51,19 +51,19 @@ int main (int args, char *argv[])
     sleep (1) ; //显示屏初始化
 
     FILE *fp;
-    char Body[30]; 
+    char Body[32]; 
     
     while(1)
     {
         fp=fopen("./bid.txt","r");
-        fgets(Body,30,fp);
+        fgets(Body,33,fp);
         fclose(fp);
 
         lcdClear (fd);
         lcdPosition (fd, 0, 0) ;
         lcdPuts(fd , Body);
         
-        sleep(1);
+        sleep(2);
     }
 
     return 0;
