@@ -41,7 +41,10 @@
 int main (int args, char *argv[])
 {
     if (wiringPiSetup () == -1)
-        exit (1) ;
+    {
+       printf("some thing wrong!");
+       exit (1) ;
+    }
     int fd = lcdInit (2, 16, 4,  11,10 , 0,1,2,3,0,0,0,0) ;
     if (fd == -1)
     {
@@ -56,14 +59,14 @@ int main (int args, char *argv[])
     while(1)
     {
         fp=fopen("./bid.txt","r");
-        fgets(Body,33,fp);
+        fgets(Body,32,fp);
         fclose(fp);
 
         lcdClear (fd);
         lcdPosition (fd, 0, 0) ;
         lcdPuts(fd , Body);
         
-        sleep(2);
+        sleep(1);
     }
 
     return 0;
